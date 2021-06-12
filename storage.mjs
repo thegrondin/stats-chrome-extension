@@ -61,7 +61,7 @@ const getItem = (key, callback) => {
 
 const setItem = (key, value) => {
   chrome.storage.sync.set({ [key]: value });
-  console.log("Saved to storage : ", value);
+  //console.log("Saved to storage : ", value);
 };
 
 const clearAll = (key) => {
@@ -78,6 +78,6 @@ const addNewurl = (newUrl) => {
     result = JSON.stringify(result);
 
     setItem("urls", result);
-    console.log("RESULTS", result);
+    //console.log("RESULTS", result);
   });
 };

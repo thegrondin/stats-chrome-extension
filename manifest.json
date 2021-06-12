@@ -12,6 +12,7 @@
     "bookmarks",
     "webRequest",
     "webNavigation",
+    "unlimitedStorage",
     "storage"
   ],
   "host_permissions": ["*://*/*"],
