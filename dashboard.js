@@ -16,6 +16,6 @@ getListInConsole.addEventListener("click", (e) => {
 sortByHost.addEventListener("click", (e) => {
   getItem("urls", (result) => {
     result = JSON.parse(result);
-    console.log("result", sortAggregates(groupByHost(result)).reverse());
+    console.table(sortAggregates(groupByHost(result)).reverse());
   });
 });
