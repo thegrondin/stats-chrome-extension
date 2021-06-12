@@ -23,7 +23,7 @@ chrome.storage.sync.get(["key"], function (result) {
 
 chrome.webNavigation.onCommitted.addListener((e) => {
   if (selectedTransitionTypes.includes(e.transitionType)) {
-    const visitedUrl = new URL(e.url);
+    const visitedUrl = new StatisticsURL(new URL(e.url));
 
     addNewurl(visitedUrl);
   }
