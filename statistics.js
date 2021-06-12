@@ -4,6 +4,13 @@ class AggregateItem {
     this.count = count;
     this.items = items;
   }
+
+  toObject() {
+    return {
+      name: this.name,
+      count: this.count,
+    };
+  }
 }
 
 class GroupByAggregate {

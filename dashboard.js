@@ -2,6 +2,8 @@ const clearAllBtn = document.querySelector(".clear-all-btn");
 const getListInConsole = document.querySelector(".get-list");
 const sortByHost = document.querySelector(".sort-by-host");
 
+const tableWrapper = document.querySelector(".table-wrapper");
+
 clearAllBtn.addEventListener("click", (e) => {
   clearAll("urls");
 });
@@ -9,13 +11,20 @@ clearAllBtn.addEventListener("click", (e) => {
 getListInConsole.addEventListener("click", (e) => {
   getItem("urls", (result) => {
     result = JSON.parse(result);
-    console.log(parseJsonListToStatisticsUrl(result));
+    console.table(parseJsonListToStatisticsUrl(result));
   });
 });
 
 sortByHost.addEventListener("click", (e) => {
   getItem("urls", (result) => {
     result = JSON.parse(result);
-    console.table(sortAggregates(groupByHost(result)).reverse());
+    const items = sortAggregates(groupByHost(result)).reverse();
+
+    const aggreateTable = new DynamicTable(
+      ["name", "count"],
+      convertAggregateListToObjects(items)
+    );
+
+    aggreateTable.generateDOM(tableWrapper);
   });
 });
